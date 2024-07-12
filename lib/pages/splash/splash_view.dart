@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 
 class SplasView extends StatelessWidget {
   const SplasView({super.key});
@@ -9,7 +10,11 @@ class SplasView extends StatelessWidget {
       appBar: AppBar(),
       body: Column(
         children: [
-          TextButton(onPressed: () {}, child: const Text('Go To Home'))
+          TextButton(
+              onPressed: () {
+                context.go('/home');
+              },
+              child: const Text('Go To Home'))
         ],
       ),
     );
