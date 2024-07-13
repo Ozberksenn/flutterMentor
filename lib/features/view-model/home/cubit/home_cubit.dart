@@ -1,7 +1,6 @@
 import 'package:bloc/bloc.dart';
 import 'package:dio/dio.dart';
-import 'package:flutter/physics.dart';
-import 'package:fluttermentor/model/all_characterse.dart';
+import 'package:fluttermentor/features/model/all_characterse.dart';
 import 'package:meta/meta.dart';
 part 'home_state.dart';
 
@@ -21,7 +20,6 @@ class HomeCubit extends Cubit<HomeState> {
   }
 
   Future<void> fetchAllCharacters() async {
-    emit(HomeInitial());
     final response =
         await dio.get('https://hp-api.onrender.com/api/characters');
     if (response.statusCode == 200) {

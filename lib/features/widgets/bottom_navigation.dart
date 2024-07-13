@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:fluttermentor/pages/home/cubit/home_cubit.dart';
+
+import '../view-model/home/cubit/home_cubit.dart';
 
 class BottomNavigation extends StatelessWidget {
   final HomeCubit state;

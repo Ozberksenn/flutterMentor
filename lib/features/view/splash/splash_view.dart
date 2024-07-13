@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:fluttermentor/product/router/app_routes.dart';
 import 'package:go_router/go_router.dart';
 
 class SplasView extends StatelessWidget {
@@ -12,7 +13,7 @@ class SplasView extends StatelessWidget {
         children: [
           TextButton(
               onPressed: () {
-                context.go('/home');
+                context.goNamed(AppRoutes.home);
               },
               child: const Text('Go To Home'))
         ],

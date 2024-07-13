@@ -12,7 +12,7 @@ final class HomeLoading extends HomeState {
 }
 
 final class HomeCompleted extends HomeState {
-  final int? bottomNavigationIndex;
+  final int bottomNavigationIndex;
   final List<AllCharacters>? allCharacters;
   HomeCompleted({this.bottomNavigationIndex = 0, this.allCharacters});
 }

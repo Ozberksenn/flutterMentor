@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
-import '../utils/path.dart';
+import 'package:fluttermentor/product/constants/app_strings.dart';
 
 AppBar appBar() {
   return AppBar(
     title: Image.network(
-      AssetPath.logo,
+      AppStrings.logo,
       width: 200,
       height: 80,
     ),

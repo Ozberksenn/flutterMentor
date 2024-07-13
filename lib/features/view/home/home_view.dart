@@ -1,8 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:fluttermentor/pages/home/cubit/home_cubit.dart';
-import 'package:fluttermentor/pages/profile/profile_view.dart';
+import 'package:fluttermentor/product/utils/state_functions.dart';
+import '../../view-model/home/cubit/home_cubit.dart';
 import '../../widgets/appBar.dart';
 import '../../widgets/bottom_navigation.dart';
 
@@ -23,7 +23,7 @@ class HomeView extends StatelessWidget {
       } else if (state is HomeCompleted) {
         return Scaffold(
           appBar: appBar(),
-          body: bottomContent(state),
+          body: homeBottomContent(state),
           bottomNavigationBar: BottomNavigation(
             state: homeCubit,
           ),
@@ -41,28 +41,23 @@ class Home extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ListView.builder(
-        shrinkWrap: true,
-        itemCount: state.allCharacters?.length,
-        itemBuilder: (context, index) {
-          return Column(children: [
-            Text(state.allCharacters?[index].name ?? ""),
-            Container()
-          ]);
-        });
-  }
-}
-
-bottomContent(HomeCompleted state) {
-  if (state.bottomNavigationIndex == 0) {
-    return Home(
-      state: state,
+    return Column(
+      children: [
+        Container(
+          color: Colors.red,
+          height: MediaQuery.of(context).size.height / 5,
+          child: ListView.builder(
+              shrinkWrap: true,
+              scrollDirection: Axis.horizontal,
+              itemCount: state.allCharacters?.length,
+              itemBuilder: (context, index) {
+                return Column(children: [
+                  Text(state.allCharacters?[index].name ?? ""),
+                  Container()
+                ]);
+              }),
+        ),
+      ],
     );
-  } else if (state.bottomNavigationIndex == 1) {
-    return Container(
-      child: Text('Other'),
-    );
-  } else if (state.bottomNavigationIndex == 2) {
-    return const ProfileView();
   }
 }

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:fluttermentor/pages/home/cubit/home_cubit.dart';
-import 'utils/router.dart';
+import 'features/view-model/home/cubit/home_cubit.dart';
+import 'product/router/app_router.dart';
 
 void main() {
   runApp(const MyApp());
