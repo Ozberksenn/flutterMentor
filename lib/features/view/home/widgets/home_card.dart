@@ -1,18 +1,17 @@
 import 'package:flutter/material.dart';
+import 'package:fluttermentor/features/model/all_characterse.dart';
 import 'package:fluttermentor/product/constants/app_dimensions.dart';
 import 'package:fluttermentor/product/constants/app_strings.dart';
-
-import '../../../view-model/home/cubit/home_cubit.dart';
 
 class HomeCard extends StatelessWidget {
   const HomeCard({
     super.key,
     this.title,
-    required this.state,
+    this.list,
   });
 
-  final HomeCompleted state;
   final String? title;
+  final List<AllCharacters>? list;
 
   @override
   Widget build(BuildContext context) {
@@ -32,7 +31,7 @@ class HomeCard extends StatelessWidget {
             child: ListView.builder(
                 shrinkWrap: true,
                 scrollDirection: Axis.horizontal,
-                itemCount: state.allCharacters?.length,
+                itemCount: list!.length,
                 itemBuilder: (context, index) {
                   return Container(
                     width: width / 2.6,
@@ -44,17 +43,16 @@ class HomeCard extends StatelessWidget {
                             borderRadius: AppDimensions.radius16,
                             image: DecorationImage(
                                 fit: BoxFit.cover,
-                                image: state.allCharacters?[index].image != ""
-                                    ? NetworkImage(
-                                        state.allCharacters?[index].image ??
-                                            AppStrings.customImage)
+                                image: list?[index].image != ""
+                                    ? NetworkImage(list?[index].image ??
+                                        AppStrings.customImage)
                                     : const NetworkImage(
                                         AppStrings.customImage))),
                       ),
                       SizedBox(
                         width: width / 3,
                         child: Text(
-                          state.allCharacters?[index].name ?? "",
+                          list?[index].name ?? "",
                           style: Theme.of(context).textTheme.bodyLarge,
                           textAlign: TextAlign.center,
                           maxLines: 2,

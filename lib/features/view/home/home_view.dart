@@ -16,7 +16,6 @@ class HomeView extends StatelessWidget {
     final homeCubit = BlocProvider.of<HomeCubit>(context);
     return BlocBuilder<HomeCubit, HomeState>(builder: (context, state) {
       if (state is HomeInitial) {
-        homeCubit.fetchAllCharacters();
         return Scaffold(
           appBar: appBar(),
         );
@@ -48,7 +47,15 @@ class Home extends StatelessWidget {
         padding: AppDimensions.pagePadding,
         child: Column(
           children: [
-            HomeCard(title: "All Characters", state: state),
+            HomeCard(
+              title: "All Characters",
+              list: state.allCharacters ?? [],
+            ),
+            const Padding(
+              padding: AppDimensions.padding8,
+              child: Divider(),
+            ),
+            HomeCard(title: "Hogwarts Staff", list: state.staff ?? []),
           ],
         ),
       ),

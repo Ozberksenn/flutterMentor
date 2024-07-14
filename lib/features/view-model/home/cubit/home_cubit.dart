@@ -14,21 +14,30 @@ class HomeCubit extends Cubit<HomeState> {
       final currentState = state as HomeCompleted;
       emit(HomeCompleted(
         allCharacters: currentState.allCharacters,
+        staff: currentState.staff,
         bottomNavigationIndex: currentIndex,
       ));
     }
   }
 
   Future<void> fetchAllCharacters() async {
-    final response =
+    final responseAllCharacherts =
         await dio.get('https://hp-api.onrender.com/api/characters');
-    if (response.statusCode == 200) {
-      List<AllCharacters>? allCharacterList = (response.data as List)
+    final responseStaff =
+        await dio.get("https://hp-api.onrender.com/api/characters/staff");
+    if (responseAllCharacherts.statusCode == 200 ||
+        responseStaff.statusCode == 200) {
+      List<AllCharacters>? allCharacterList =
+          (responseAllCharacherts.data as List)
+              .map((item) => AllCharacters.fromJson(item))
+              .toList();
+      List<AllCharacters>? staffList = (responseStaff.data as List)
           .map((item) => AllCharacters.fromJson(item))
           .toList();
-      emit(HomeCompleted(allCharacters: allCharacterList));
+      emit(HomeCompleted(allCharacters: allCharacterList, staff: staffList));
     } else {
-      print(response.statusMessage);
+      print(responseAllCharacherts.statusMessage);
+      print(responseStaff.statusMessage);
     }
   }
 }

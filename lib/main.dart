@@ -15,7 +15,11 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MultiBlocProvider(
         providers: [
-          BlocProvider(create: (_) => HomeCubit()),
+          BlocProvider(create: (_) {
+            final homeCubit = HomeCubit();
+            homeCubit.fetchAllCharacters();
+            return homeCubit;
+          }),
         ],
         child: MaterialApp.router(
             title: 'Harry Potter',
