@@ -17,7 +17,7 @@ class MyApp extends StatelessWidget {
         providers: [
           BlocProvider(create: (_) {
             final homeCubit = HomeCubit();
-            homeCubit.fetchAllCharacters();
+            homeCubit.fetchData();
             return homeCubit;
           }),
         ],

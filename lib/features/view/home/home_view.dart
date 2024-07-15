@@ -56,6 +56,11 @@ class Home extends StatelessWidget {
               child: Divider(),
             ),
             HomeCard(title: "Hogwarts Staff", list: state.staff ?? []),
+            const Padding(
+              padding: AppDimensions.padding8,
+              child: Divider(),
+            ),
+            HomeCard(title: "Hogwarts Students", list: state.students ?? []),
           ],
         ),
       ),

@@ -15,10 +15,15 @@ final class HomeCompleted extends HomeState {
   final int bottomNavigationIndex;
   final List<AllCharacters>? allCharacters;
   final List<AllCharacters>? staff;
+  final List<AllCharacters>? students;
   HomeCompleted(
-      {this.bottomNavigationIndex = 0, this.allCharacters, this.staff});
+      {this.bottomNavigationIndex = 0,
+      this.allCharacters,
+      this.staff,
+      this.students});
 }
 
 final class HomeError extends HomeState {
-  HomeError();
+  final String message;
+  HomeError({required this.message});
 }
