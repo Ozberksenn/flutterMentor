@@ -19,9 +19,9 @@ class BottomNavigation extends StatelessWidget {
         },
         items: const <BottomNavigationBarItem>[
           BottomNavigationBarItem(
-              label: "home", icon: Icon(CupertinoIcons.home)),
+              label: "home", icon: Icon(CupertinoIcons.bolt)),
           BottomNavigationBarItem(
-              label: "test", icon: Icon(CupertinoIcons.hourglass)),
+              label: "Houses", icon: Icon(CupertinoIcons.house_alt)),
           BottomNavigationBarItem(
               label: "Profile", icon: Icon(CupertinoIcons.person_fill))
         ]);
