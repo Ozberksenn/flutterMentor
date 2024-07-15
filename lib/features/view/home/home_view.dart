@@ -27,6 +27,7 @@ class HomeView extends StatelessWidget {
           body: homeBottomContent(state),
           bottomNavigationBar: BottomNavigation(
             state: homeCubit,
+            homeCompleted: state,
           ),
         );
       } else {

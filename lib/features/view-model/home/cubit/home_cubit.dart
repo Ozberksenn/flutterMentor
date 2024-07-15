@@ -39,15 +39,6 @@ class HomeCubit extends Cubit<HomeState> {
     } else {
       return [];
     }
-    // final response =
-    //     await dio.get("https://hp-api.onrender.com/api/characters/staff");
-    // if (response.statusCode == 200) {
-    // return (response.data as List)
-    //     .map((item) => AllCharacters.fromJson(item))
-    //     .toList();
-    // } else {
-    //   return [];
-    // }
   }
 
   Future<List<AllCharacters>> fetchAllCharacters() async {
@@ -58,15 +49,6 @@ class HomeCubit extends Cubit<HomeState> {
     } else {
       return [];
     }
-    // final responseAllCharacherts =
-    //     await dio.get('https://hp-api.onrender.com/api/characters');
-    // if (responseAllCharacherts.statusCode == 200) {
-    //   return (responseAllCharacherts.data as List)
-    //       .map((item) => AllCharacters.fromJson(item))
-    //       .toList();
-    // } else {
-    //   return [];
-    // }
   }
 
   Future<List<AllCharacters>> fetchStudents() async {

@@ -5,12 +5,15 @@ import '../view-model/home/cubit/home_cubit.dart';
 
 class BottomNavigation extends StatelessWidget {
   final HomeCubit state;
+  final HomeCompleted homeCompleted;
 
-  const BottomNavigation({Key? key, required this.state}) : super(key: key);
+  const BottomNavigation(
+      {Key? key, required this.state, required this.homeCompleted})
+      : super(key: key);
   @override
   Widget build(BuildContext context) {
     return BottomNavigationBar(
-        currentIndex: 0,
+        currentIndex: homeCompleted.bottomNavigationIndex,
         onTap: (value) {
           state.changeBottomIndex(value);
         },
@@ -20,7 +23,7 @@ class BottomNavigation extends StatelessWidget {
           BottomNavigationBarItem(
               label: "test", icon: Icon(CupertinoIcons.hourglass)),
           BottomNavigationBarItem(
-              label: "test2", icon: Icon(CupertinoIcons.money_dollar))
+              label: "Profile", icon: Icon(CupertinoIcons.person_fill))
         ]);
   }
 }
