@@ -10,11 +10,11 @@ class DetailView extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: appBar(context),
-      body: Column(
+      body: const Column(
         children: [
           Expanded(
               child: Padding(
-            padding: const EdgeInsets.only(bottom: 48.0),
+            padding: EdgeInsets.only(bottom: 48.0),
             child: ProfileView(),
           ))
         ],
