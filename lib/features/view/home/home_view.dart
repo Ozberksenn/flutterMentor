@@ -17,13 +17,13 @@ class HomeView extends StatelessWidget {
     return BlocBuilder<HomeCubit, HomeState>(builder: (context, state) {
       if (state is HomeInitial) {
         return Scaffold(
-          appBar: appBar(),
+          appBar: appBar(context),
         );
       } else if (state is HomeLoading) {
         return const CircularProgressIndicator();
       } else if (state is HomeCompleted) {
         return Scaffold(
-          appBar: appBar(),
+          appBar: appBar(context),
           body: homeBottomContent(state),
           bottomNavigationBar: BottomNavigation(
             state: homeCubit,
