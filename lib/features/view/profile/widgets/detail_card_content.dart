@@ -5,17 +5,24 @@ import '../../../../product/constants/app_dimensions.dart';
 import 'card_info.dart';
 
 class DetailCardContent extends StatelessWidget {
-  const DetailCardContent({
-    super.key,
-    required this.width,
-    required this.height,
-  });
+  const DetailCardContent(
+      {super.key,
+      this.title,
+      this.image,
+      this.className,
+      this.animal,
+      this.wand});
 
-  final double width;
-  final double height;
+  final String? title;
+  final String? image;
+  final String? className;
+  final String? animal;
+  final String? wand;
 
   @override
   Widget build(BuildContext context) {
+    final width = MediaQuery.of(context).size.width;
+    final height = MediaQuery.of(context).size.height;
     return Padding(
       padding: AppDimensions.pagePadding,
       child: Column(children: [
@@ -39,7 +46,7 @@ class DetailCardContent extends StatelessWidget {
               child: Column(
                 children: [
                   Text(
-                    "Ministry of Magic".toUpperCase(),
+                    title?.toUpperCase() ?? "",
                     style: Theme.of(context).textTheme.titleLarge,
                   ),
                   const Padding(padding: AppDimensions.padding16),
@@ -48,6 +55,10 @@ class DetailCardContent extends StatelessWidget {
                     width: width,
                     height: height / 4,
                     decoration: BoxDecoration(
+                        image: image != null && image != ""
+                            ? DecorationImage(
+                                fit: BoxFit.fill, image: NetworkImage(image!))
+                            : null,
                         border: Border.all(width: 1),
                         borderRadius: AppDimensions.radius8),
                   ),
@@ -57,13 +68,9 @@ class DetailCardContent extends StatelessWidget {
                       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                       children: [
                         cardInfo(context,
-                            title: "Class", description: "Class Name"),
-                        cardInfo(context,
-                            title: "Animal", description: "Rabbit"),
-                        cardInfo(context,
-                            title: "Wand", description: "Wand Name"),
-                        cardInfo(context,
-                            title: "User", description: "Özberk Şen")
+                            title: "Class", description: className),
+                        cardInfo(context, title: "Animal", description: animal),
+                        cardInfo(context, title: "Year", description: wand),
                       ],
                     ),
                   )

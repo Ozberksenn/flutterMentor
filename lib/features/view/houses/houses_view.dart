@@ -35,8 +35,6 @@ class _HousesViewState extends State<HousesView> with TickerProviderStateMixin {
 
   @override
   Widget build(BuildContext context) {
-    // final height = MediaQuery.of(context).size.height;
-    // final width = MediaQuery.of(context).size.width;
     return BlocBuilder<HousesCubit, HousesState>(
       builder: (context, state) {
         final houseCubit = BlocProvider.of<HousesCubit>(context);

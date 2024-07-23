@@ -13,7 +13,7 @@ Widget cardInfo(BuildContext context, {String? title, String? description}) {
           style: Theme.of(context).textTheme.titleMedium,
         ),
         Text(
-          description ?? '',
+          description?.toUpperCase() ?? '',
           style: Theme.of(context).textTheme.titleMedium,
         )
       ],

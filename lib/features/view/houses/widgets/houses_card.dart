@@ -14,7 +14,7 @@ class HousesCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ListTile(
-      onTap: () => context.goNamed(AppRoutes.detail),
+      onTap: () => context.goNamed(AppRoutes.detail, extra: characters),
       leading: Container(
           width: 60,
           height: 60,
